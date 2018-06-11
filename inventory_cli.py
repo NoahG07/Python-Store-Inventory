@@ -23,7 +23,6 @@ def menu(c):
             update_inventory(c)
         if choice == 4:
             read_inventory(conn, c)
-            #print(read_inventory(conn, c))
         if choice == 5:
             exit()
                     
@@ -43,14 +42,12 @@ def add_inventory(conn, c):
             "price":add_price
         })
     read_inventory(conn, c)
-    #print(read_inventory(conn, c))
 
 def remove_inventory(conn, c):
     sold = input("What was sold? ")
     with conn:
         c.execute("DELETE FROM decor WHERE Item=:item", {"item":sold})
     read_inventory(conn, c)
-    #print(read_inventory(conn, c))
         
 def read_inventory(conn, c):
     with conn:
@@ -58,7 +55,6 @@ def read_inventory(conn, c):
         print("\nItem ---- Qt. ---- Price")
         for row in search:
             print(row)
-            #return row
     
 def update_inventory(c):
     read_inventory(conn, c)
@@ -71,7 +67,6 @@ def update_inventory(c):
             "items":what_item
         })
         read_inventory(conn, c)
-        #print(read_inventory(conn, c))
     else:
         prices = input("Did price change? (yes/no) ")
         if prices.lower() == "yes":
@@ -80,8 +75,7 @@ def update_inventory(c):
             "prices":new_price,
             "items":what_item
             })
-            read_inventory(conn, c)
-            #print(read_inventory(conn, c))        
+            read_inventory(conn, c)    
         else:
             print("Nothing to change.")
             exit
