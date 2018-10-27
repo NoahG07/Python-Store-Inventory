@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # 
 # Program to keep track of your inventory for personal sites, yard sales, etc.
-import os, os.path, random
+import os, os.path
 
 def banner():
     the_menu = """\nWelcome, what would you like to:
